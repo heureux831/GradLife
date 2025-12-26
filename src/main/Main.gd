@@ -33,6 +33,12 @@ func _initialize_game():
 	# Show welcome message
 	GlobalSignals.show_notification("Welcome to GradLife!", 3.0)
 
+	print("=== GradLife Controls ===")
+	print("WASD or Arrow Keys: Move")
+	print("E: Interact")
+	print("ESC: Debug Stats")
+	print("=========================")
+
 func _connect_signals():
 	"""Connect to global signals"""
 	GlobalSignals.scene_change_requested.connect(_on_scene_change_requested)
