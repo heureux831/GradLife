@@ -7,6 +7,7 @@ extends Node2D
 @onready var room = $Dorm
 @onready var test_object = $YSort/TestInteractable
 @onready var interaction_manager = $InteractionManager
+@onready var status_label = $CanvasLayer/StatusLabel
 
 func _ready():
 	# Initialize the game
@@ -22,6 +23,8 @@ func _ready():
 	_setup_interaction()
 
 	print("GradLife initialized successfully!")
+	print("Player position: ", player.position if player else "NOT FOUND")
+	print("Test object position: ", test_object.position if test_object else "NOT FOUND")
 
 func _initialize_game():
 	"""Initialize game systems"""
@@ -51,6 +54,9 @@ func _on_scene_change_requested(scene_path: String):
 	# TODO: Implement scene transitions
 	print("Scene change requested to: ", scene_path)
 
+func _process(_delta):
+	_update_status()
+
 func _unhandled_input(event):
 	"""Handle input events"""
 	# Handle interact key press
@@ -60,6 +66,19 @@ func _unhandled_input(event):
 	# Debug: Press F1 to show stats
 	if event.is_action_pressed("ui_cancel") and OS.is_debug_build():
 		_show_debug_stats()
+
+func _update_status():
+	"""Update the status label with current game state"""
+	if not status_label:
+		return
+
+	var status_text = ""
+	status_text += "Day " + str(TimeSystem.get_day()) + " - " + TimeSystem.get_time_string() + "\n"
+	status_text += "Player: (" + str(int(player.position.x)) + ", " + str(int(player.position.y)) + ")\n"
+	status_text += "Energy: " + str(int(PlayerStats.energy)) + "/100\n"
+	status_text += "Sanity: " + str(int(PlayerStats.sanity)) + "/100\n"
+
+	status_label.text = status_text
 
 func _show_debug_stats():
 	"""Show debug information in console"""

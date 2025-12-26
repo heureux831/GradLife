@@ -41,5 +41,19 @@ offset_bottom = 60.0
 grow_horizontal = 0
 text = "WASD/Arrow Keys: Move
 E: Interact
-ESC: Debug (in debug builds)"
+ESC: Debug"
 vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -100.0
+offset_right = 400.0
+offset_bottom = -10.0
+grow_vertical = 0
+text = "Initializing..."
+vertical_alignment = 1
+

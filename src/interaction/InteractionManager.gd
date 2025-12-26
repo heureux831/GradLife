@@ -3,14 +3,21 @@ extends Node
 # Manages player interactions with objects
 # Detects nearby interactables and handles interaction logic
 
-@onready var player = get_tree().get_first_node_in_group("player")
+var player: Player = null
 var nearby_interactables: Array = []
 var current_interactable: InteractableObject = null
 
 func _ready():
-	# Add player to group if not already added
-	if player and not player.is_in_group("player"):
+	# Get player reference from the scene tree
+	player = get_tree().get_first_node_in_group("player")
+	if not player:
+		# Try to find player by path if not in group
+		player = get_tree().get_root().get_node_or_null("Main/YSort/Player")
+
+	# Add player to group
+	if player:
 		player.add_to_group("player")
+		print("Player found and added to group")
 
 func _process(_delta):
 	_update_nearby_interactables()
