@@ -1,6 +1,6 @@
 # GradLife: The Thesis
 
-A 2D pixel art life simulation game about graduate school and thesis writing, built with Godot 4.x.
+A 2D pixel art life simulation game about graduate school and thesis writing, built with Godot 4.5.
 
 ## About
 
@@ -21,7 +21,7 @@ Currently implemented:
 
 ### Prerequisites
 
-- Godot 4.x ([Download](https://godotengine.org/download))
+- Godot 4.5 ([Download](https://godotengine.org/download))
 
 ### Running the Project
 

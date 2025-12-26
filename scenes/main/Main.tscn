@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://f1234567890"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://src/main/Main.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://c1234567890" path="res://scenes/characters/Player.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://e1234567890" path="res://scenes/world/Dorm.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://d1234567890" path="res://scenes/objects/TestInteractable.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://scenes/characters/Player.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://scenes/world/Dorm.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://scenes/objects/TestInteractable.tscn" id="4"]
 [ext_resource type="Script" path="res://src/interaction/InteractionManager.gd" id="5"]
 
 [node name="Main" type="Node2D"]
