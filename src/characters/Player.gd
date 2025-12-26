@@ -31,10 +31,14 @@ func _ready():
 
 func _physics_process(delta):
 	# Handle input
-	_handle_input(delta)
+	var input_vector = _get_input_vector()
+
+	# Store last non-zero direction
+	if input_vector != Vector2.ZERO:
+		_last_direction = input_vector
 
 	# Apply movement
-	handle_movement(delta)
+	handle_movement(input_vector, delta)
 
 	# Move the character
 	move_and_slide()
@@ -42,7 +46,7 @@ func _physics_process(delta):
 	# Update animation based on movement
 	update_animation()
 
-func _handle_input(delta):
+func _get_input_vector() -> Vector2:
 	# Get input vector
 	var input_vector = Vector2.ZERO
 
@@ -53,17 +57,15 @@ func _handle_input(delta):
 	if input_vector.length() > 1:
 		input_vector = input_vector.normalized()
 
-	# Store last non-zero direction
-	if input_vector != Vector2.ZERO:
-		_last_direction = input_vector
+	return input_vector
 
-	# Store velocity for animation
-	velocity = input_vector
+func handle_movement(input_vector: Vector2, delta):
+	# Calculate target velocity
+	var target_velocity = input_vector * move_speed
 
-func handle_movement(delta):
 	# Apply acceleration or friction
-	if velocity.length() > 0:
-		velocity = velocity.move_toward(velocity * move_speed, acceleration * delta)
+	if input_vector.length() > 0:
+		velocity = velocity.move_toward(target_velocity, acceleration * delta)
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 
