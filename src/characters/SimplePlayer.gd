@@ -8,10 +8,10 @@ func _ready():
 	print("SimplePlayer initialized!")
 
 func _physics_process(delta):
-	# Get input
+	# Get input using custom actions
 	var input = Vector2.ZERO
-	input.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	# Normalize
 	if input.length() > 1:

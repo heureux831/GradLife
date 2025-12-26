@@ -53,11 +53,11 @@ func _physics_process(delta):
 	update_animation()
 
 func _get_input_vector() -> Vector2:
-	# Get input vector
+	# Get input vector using custom actions
 	var input_vector = Vector2.ZERO
 
-	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_vector.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 
 	# Debug: Print input values occasionally
 	if Engine.get_process_frames() % 60 == 0:
