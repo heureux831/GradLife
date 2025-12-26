@@ -8,6 +8,8 @@ export_presets.cfg
 *.translation
 *.translation~
 
+CLAUDE.md
+INFORMATION.md
 .claude/
 # Builds and project exports
 builds/
