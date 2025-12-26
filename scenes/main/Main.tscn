@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://f1234567890"]
+
+[ext_resource type="Script" path="res://src/main/Main.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://c1234567890" path="res://scenes/characters/Player.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://e1234567890" path="res://scenes/world/Dorm.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://d1234567890" path="res://scenes/objects/TestInteractable.tscn" id="4"]
+[ext_resource type="Script" path="res://src/interaction/InteractionManager.gd" id="5"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+current = true
+zoom = Vector2(0.5, 0.5)
+
+[node name="Dorm" parent="." instance=ExtResource("3")]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource("2")]
+position = Vector2(640, 360)
+
+[node name="TestInteractable" parent="YSort" instance=ExtResource("4")]
+position = Vector2(740, 360)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InteractionManager" type="Node" parent="."]
+script = ExtResource("5")
+
+[node name="DebugLabel" type="Label" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 60.0
+grow_horizontal = 0
+text = "WASD/Arrow Keys: Move
+E: Interact
+ESC: Debug (in debug builds)"
+vertical_alignment = 1

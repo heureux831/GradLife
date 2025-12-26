@@ -12,7 +12,8 @@ var _animation_player: AnimationPlayer
 var _sprite: Sprite2D
 
 # Interaction
-var current_interactable: Node = null
+var current_interactable: InteractableObject = null
+var _interaction_manager: Node = null
 
 # Movement direction tracking
 var _last_direction: Vector2 = Vector2.DOWN
@@ -103,7 +104,7 @@ func _play_animation(animation_name: String):
 
 func _on_interact_key_pressed():
 	# Try to interact with nearby objects
-	if current_interactable and current_interactable.has_method("interact"):
+	if current_interactable and current_interactable.can_interact:
 		current_interactable.interact(self)
 
 func set_interactable(interactable: Node):
