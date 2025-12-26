@@ -8,6 +8,7 @@ export_presets.cfg
 *.translation
 *.translation~
 
+.claude/
 # Builds and project exports
 builds/
 *.pck
