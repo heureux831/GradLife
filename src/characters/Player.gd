@@ -29,6 +29,12 @@ func _ready():
 	# Set starting animation
 	_play_animation("idle_down")
 
+	# Debug print
+	print("Player initialized!")
+	print("Move speed: ", move_speed)
+	print("Acceleration: ", acceleration)
+	print("Friction: ", friction)
+
 func _physics_process(delta):
 	# Handle input
 	var input_vector = _get_input_vector()
@@ -52,6 +58,11 @@ func _get_input_vector() -> Vector2:
 
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+
+	# Debug: Print input values occasionally
+	if Engine.get_process_frames() % 60 == 0:
+		if input_vector.x != 0 or input_vector.y != 0:
+			print("Input detected! Vector: ", input_vector)
 
 	# Normalize diagonal movement
 	if input_vector.length() > 1:
