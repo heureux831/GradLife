@@ -1,0 +1,53 @@
+# Godot-specific file attributes
+
+# Set default behavior for all files
+* text=auto
+
+# Source code files - ensure proper line endings
+*.gd text eol=lf
+*.gdscript text eol=lf
+*.cs text eol=lf
+*.tscn text eol=lf
+*.tres text eol=lf
+*.tscn.tres text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Export files
+export.cfg text eol=lf
+export_presets.cfg text eol=lf
+
+# Scripts and config files
+*.sh text eol=lf
+*.py text eol=lf
+*.toml text eol=lf
+
+# Binary files - don't change line endings or try to diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg text eol=lf
+*.ico binary
+*.wav binary
+*.ogg binary
+*.mp3 binary
+*.wasm binary
+
+# Fonts
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+
+# Project files
+*.godot binary
+*.import binary
+
+# Android/iOS specific
+*.apk binary
+*.ipa binary
+*.pck binary

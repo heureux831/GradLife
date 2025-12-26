@@ -1,0 +1,72 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported translations (automatically generated from CSV files)
+*.translation
+*.translation~
+
+# Builds and project exports
+builds/
+*.pck
+*.exe
+*.dmg
+*.apk
+*.ipa
+*.wasm
+
+# System-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.tmp
+
+# Godot-specific ignores
+*.import
+*.translation
+*.translation~
+
+# Android
+android/
+.gradle/
+gradle/
+gradlew
+gradlew.bat
+
+# iOS
+ios/
+*.xcodeproj
+*.xcworkspace
+
+# Python (if using tools/scripts)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Optional: Keep assets but ignore large binary files
+# Uncomment if you don't want to commit large asset files
+# assets/sprites/*.png
+# assets/audio/*.wav
+# !assets/sprites/README.md
+# !assets/audio/README.md
